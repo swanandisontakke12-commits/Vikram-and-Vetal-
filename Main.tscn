@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cf4ricjhiowo6"]
+
+[ext_resource type="Script" uid="uid://b86exeq84yb88" path="res://main.gd" id="1_glv2v"]
+
+[node name="Main" type="Node2D" unique_id=1934764841]
+script = ExtResource("1_glv2v")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=756551629]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.09411765, 0.16862746, 1)
+
+[node name="START" type="Button" parent="." unique_id=1349906099]
+offset_left = 451.0
+offset_top = 205.0
+offset_right = 701.0
+offset_bottom = 255.0
+text = "START"
+
+[node name="HOW TO PLAY" type="Button" parent="." unique_id=37563021]
+offset_left = 451.0
+offset_top = 280.0
+offset_right = 701.0
+offset_bottom = 330.0
+text = "HOW TO PLAY"
+
+[node name="QUIT" type="Button" parent="." unique_id=1031219341]
+offset_left = 451.0
+offset_top = 355.0
+offset_right = 701.0
+offset_bottom = 405.0
+text = "QUIT"
+
+[connection signal="pressed" from="START" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HOW TO PLAY" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]

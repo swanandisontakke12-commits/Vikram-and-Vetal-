@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dwtbiukkehpp4"]
+
+[ext_resource type="Texture2D" uid="uid://dmre27mxa7qci" path="res://Assests/background/forest.png" id="1_s2ta7"]
+[ext_resource type="AudioStream" uid="uid://ccmimohxra3s5" path="res://Assests/intro_music.mp3" id="2_ayt76"]
+[ext_resource type="Texture2D" uid="uid://ll3i0kkyfg3e" path="res://Assests/Characters/ChatGPT Image Oct 8, 2026, 03_03_02 PM.png" id="3_7a8ye"]
+
+[sub_resource type="Animation" id="Animation_7a8ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("narrator:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-390, 472.8)]
+}
+
+[sub_resource type="Animation" id="Animation_0a7ni"]
+resource_name = "intro_zoom"
+length = 7.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("narrator:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.7, 7.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-390, 472.8), Vector2(250, 472.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y72e6"]
+_data = {
+&"RESET": SubResource("Animation_7a8ye"),
+&"intro_zoom": SubResource("Animation_0a7ni")
+}
+
+[node name="Intro" type="Control" unique_id=56705154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Sprite2D" parent="." unique_id=1321094321]
+position = Vector2(576, 324)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_s2ta7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1702276198]
+position = Vector2(576, 324)
+zoom = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=142982203]
+libraries/ = SubResource("AnimationLibrary_y72e6")
+autoplay = &"intro_zoom"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1771483184]
+stream = ExtResource("2_ayt76")
+autoplay = true
+
+[node name="narrator" type="Sprite2D" parent="." unique_id=1598360004]
+position = Vector2(-390, 472.8)
+scale = Vector2(0.37, 0.35)
+texture = ExtResource("3_7a8ye")
+
+[node name="Dailogue_box" type="Panel" parent="." unique_id=1663175345]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Dailogue_box" unique_id=244729230]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 150.0
+offset_right = 2091.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 25
+text = "Long ago, in the ancient city of Ujjayini, 
+ruled the mighty King Vikramaditya—
+a ruler renowned for his courage, 
+wisdom, and sense of justice."

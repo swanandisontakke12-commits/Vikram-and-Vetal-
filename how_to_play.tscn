@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://qohrsnyd5vuw"]
+
+[ext_resource type="Script" uid="uid://behu2be138p5r" path="res://how_to_play.gd" id="1_1ad62"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yofeh"]
+
+[node name="HowToPlay" type="Control" unique_id=13311141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ad62")
+
+[node name="Label" type="Label" parent="." unique_id=922216172]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 100.0
+offset_right = 850.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 18
+text = "HOW TO PLAY
+
+Welcome, King Vikram!
+
+Explore the world and meet Vetala.
+Listen carefully to each riddle.
+Choose the correct answer to progress.
+
+❤️ You have 3 lives.
+💡 You can use hints when you are stuck.
+
+Solve all 10 riddles to complete the game!"
+
+[node name="back" type="Button" parent="Label" unique_id=757633214]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 400.0
+offset_right = 580.0
+offset_bottom = 440.0
+text = "Back"
+icon = SubResource("AtlasTexture_yofeh")
+
+[connection signal="pressed" from="Label/back" to="." method="HowToPlay"]
+[connection signal="pressed" from="Label/back" to="." method="_on_back_pressed"]
